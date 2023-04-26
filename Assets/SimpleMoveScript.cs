@@ -34,4 +34,9 @@ public class SimpleMoveScript : MonoBehaviour
             playerInteractableOnTrigger.OnPlayerInteract();
         }
     }
+
+    public void SayThatYouPickedUpPotion()
+    {
+        Debug.Log("I picked up a potion :) ");
+    }
 }

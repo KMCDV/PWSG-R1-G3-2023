@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Super Kwadrat/PlayerSpeed")]
+[CreateAssetMenu(menuName = "Super Kwadrat/Game Event")]
 public class GameEvent : ScriptableObject
 {
     
@@ -16,14 +16,26 @@ public class GameEvent : ScriptableObject
         }
     }
 
-    public void RegisterListener()
+    public void RegisterListener(IGameEventListener gameEventListener)
     {
-        listenersList.Add(null);
+        if (listenersList == null)
+            return;
+
+        if (listenersList.Contains(gameEventListener))
+            return;
+
+        listenersList.Add(gameEventListener);
     }
 
-    public void UnregisterListener()
+    public void UnregisterListener(IGameEventListener gameEventListener)
     {
+        if (listenersList == null)
+            return;
 
+        if (listenersList.Contains(gameEventListener) == false)
+            return;
+
+        listenersList.Remove(gameEventListener);
     }
 
 }
