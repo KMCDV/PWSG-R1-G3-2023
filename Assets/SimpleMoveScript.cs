@@ -12,6 +12,13 @@ public class SimpleMoveScript : MonoBehaviour
     private void Start()
     {
         body = GetComponent<Rigidbody>();
+        MultiplyBy2(2);
+        
+    }
+
+    public int MultiplyBy2(int value)
+    {
+        return MultiplyBy2(value);
     }
 
     // Update is called once per frame
